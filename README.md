@@ -134,6 +134,12 @@ But for HF length of antenna depends on your band chose for WSPR. For example if
 
 <img src="images/lightaprs-wspr-wire-antenna-pico-balloon.jpg" width="600">
 
+During 20m WSPR tests on a pico balloon, we experienced LightAPRS-W beacons heard from 8.585 km. away as follows:
+
+<img src="images/lightaprs-wspr-list.png" width="600">
+
+<img src="images/lightaprs-wspr-test-map.png" width="600">
+
 **Q. But I want to use rubber duck antenna. Is it possible?**
 
 A. Yes. But you need a pcb type SMA connector (male or female) as follows:
