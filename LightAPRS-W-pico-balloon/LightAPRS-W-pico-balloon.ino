@@ -40,7 +40,7 @@
 //#define DEVMODE // Development mode. Uncomment to enable for debugging.
 
 //******************************  APRS CONFIG **********************************
-char    CallSign[7]="TA2MUN"; //DO NOT FORGET TO CHANGE YOUR CALLSIGN
+char    CallSign[7]="NOCALL"; //DO NOT FORGET TO CHANGE YOUR CALLSIGN
 int8_t  CallNumber=11; //SSID http://www.aprs.org/aprs11/SSIDs.txt
 char    Symbol='O'; // '/O' for balloon, '/>' for car, for more info : http://www.aprs.org/symbols/symbols-new.txt
 bool    alternateSymbolTable = false ; //false = '/' , true = '\'
@@ -58,7 +58,7 @@ float     WsprBattMin=4.5; //min Volts for HF mradio module to transmit (TX) ~10
 
 //******************************  HF CONFIG *************************************
 
-char hf_call[7] = "TA2MUN"; //DO NOT FORGET TO CHANGE YOUR CALLSIGN
+char hf_call[7] = "NOCALL"; //DO NOT FORGET TO CHANGE YOUR CALLSIGN
 
 //#define WSPR_DEFAULT_FREQ       10140200UL //30m band
 #define WSPR_DEFAULT_FREQ       14097200UL //20m band
