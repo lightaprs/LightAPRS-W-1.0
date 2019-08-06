@@ -44,6 +44,8 @@ LightAPRS-W will be soon available on http://www.qrp-labs.com for order.
 - **Extended Pins** : I2C, SPI
 - **USB Serial** : CH340G
 
+<img src="images/lightaprs-w-size.jpg" width="500">
+
 ## Configuration
 
 To programme LightAPRS-W Tracker, all you need is a micro usb (B type) cable, a few installations and configurations.
