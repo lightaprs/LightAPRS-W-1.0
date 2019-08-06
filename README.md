@@ -128,11 +128,11 @@ A. Please check out our wiki page Tips & Tricks for Pico Balloons:  https://gith
 
 **Q. What kind of antenna do i need to use on LightAPRS-W?**
 
-A. You can use any type. For airborne projects (such as pico balloons) we suggest quarter wave monopole antenna for VHF (2m APRS) becuase this makes your payload lighter. So just cut a light 50 cm. wire and solder it to antenna footprint (A1) Since your payload is airborn and wavelenght is 2 meters, you don't need a wire for ground.
+A. You can use any type. For airborne projects (such as pico balloons) we suggest quarter wave monopole antenna for VHF (2m APRS) becuase this makes your payload lighter. So just cut a light 50 cm. wire and solder it to antenna footprint (VHF) Since your payload is airborn and wavelenght is 2 meters, you don't need a wire for ground.
 
-But for HF length of antenna depends on your band chose for WSPR. For example if it's 20 meters, you need 5m for TX RF output and 5m for ground. Tie one end to the balloon and solder the other end to the groundplane of the PCB. Then solder another 5m of wire to the TX RF output on the PCB, and let it hang below.
+But for HF length of antenna depends on your band chose for WSPR. For example if it is 20 meters, you need 5m for TX RF output and 5m for ground. Tie one end to the balloon and solder the other end to the groundplane of the PCB. Then solder another 5m of wire to the TX RF output on the PCB, and let it hang below.
 
-<img src="images/lightaprs-monopole-wire-antenna-connection.jpg" width="600">
+<img src="images/lightaprs-wspr-wire-antenna-pico-balloon.jpg" width="600">
 
 **Q. But I want to use rubber duck antenna. Is it possible?**
 
