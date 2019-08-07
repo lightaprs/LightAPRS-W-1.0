@@ -4,7 +4,7 @@ LightAPRS-W is an affordable, smallest, lightest, powerful and open source APRS 
 It is able to report location, altitude, temperature and pressure to the internet ([APRS-IS](http://status.aprs2.net)) or direct to an amateur radio once a minute with a solar panel/super capacitors or just 4xAAA batteries. 
 Because LightAPRS-W is open source you can add your own custom sensors via I2C/SPI pins.
 
-LightAPRS-W will be soon available on http://www.qrp-labs.com for order. If you don't need WSPR, than check out [LightAPRS](https://github.com/lightaprs/LightAPRS-1.0)
+LightAPRS-W is available on http://qrp-labs.com/lightaprs-w for order. If you don't need WSPR, than check out APRS only tracker [LightAPRS](https://github.com/lightaprs/LightAPRS-1.0)
 
 <img src="images/lightaprs-w-pinout.jpeg" width="600">
 
