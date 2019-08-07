@@ -124,7 +124,7 @@ If you have any questions or need supoort, please contact support@lightaprs.com
 
 **Q. I'm interested in pico balloon flights but I have no experience. What kind of balloon, solar panel, capacitor, etc. should I use?**
 
-A. Please check out our wiki page Tips & Tricks for Pico Balloons:  https://github.com/lightaprs/LightAPRS-1.0/wiki/Tips-&-Tricks-for-Pico-Balloons
+A. Please check out our wiki page Tips & Tricks for Pico Balloons:  https://github.com/lightaprs/LightAPRS-W-1.0/wiki/Tips-&-Tricks-for-Pico-Balloons
 
 **Q. What kind of antenna do i need to use on LightAPRS-W?**
 
