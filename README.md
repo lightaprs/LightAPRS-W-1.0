@@ -140,6 +140,14 @@ During 20m WSPR tests on a pico balloon, we experienced LightAPRS-W beacons hear
 
 <img src="images/lightaprs-wspr-test-map.png" width="600">
 
+Also check out Tom's (W5KUB) web site (http://tmedlin.com/balloon-3/) for a successful 20m pico balloon launch with LightAPRS-W.
+
+**APRS Tracking :** https://aprs.fi/#!mt=roadmap&z=11&call=a%2FW5KUB-11&timerange=604800&tail=604800
+
+**WSPR Tracking :** https://aprs.fi/#!mt=roadmap&z=11&call=a%2FW5KUB-10&timerange=604800&tail=604800
+
+[![](http://img.youtube.com/vi/A8XgT2lk1U4/0.jpg)](https://www.youtube.com/watch?v=A8XgT2lk1U4 "W5KUB High Altitude Pico Balloon Launch")
+
 **Q. But I want to use rubber duck antenna. Is it possible?**
 
 A. Yes. But you need a pcb type SMA connector (male or female) as follows:
