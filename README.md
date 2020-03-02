@@ -94,7 +94,7 @@ Download and install [Arduino IDE](https://www.arduino.cc/en/Main/Software). If 
 
 You are almost ready to programme LightAPRS-W Tracker :)
 
-- First download the repository to your computer using green "clone or download" button.
+- First download the repository to your computer using green "[clone or download](https://github.com/lightaprs/LightAPRS-W-1.0/archive/master.zip)" button.
 - There are more then one Arduino projects optimized for different use cases. For example if you are planning to use LightAPRS-W tracker for a pico balloon project, then use "[LightAPRS-W-pico-balloon](LightAPRS-W-pico-balloon)" folder.
 - You will notice some folders in the "libraries" folder. You have to copy these folders (libraries) into your Arduino libraries folder on your computer. Path to your Arduino libraries:
 - **Windows** : This PC\Documents\Arduino\libraries\
