@@ -23,7 +23,7 @@ LightAPRS-W is available on http://qrp-labs.com/lightaprs-w for order. If you do
 - **EEPROM** : 4 kB
 - **Operating Frequency** : 8 Mhz
 - **Operating Voltage** : 3.3 Volt
-- **Input Voltage** : 4.5 (min) - 15 (max) Volt for 0.5 Watt / 4.5 (min) - 10 (max) Volt for 1 Watt via usb or VBat pin
+- **Input Voltage** : 4.5 (min) - 10 (max) Volt via usb or VBat pin
 - **BOD** : 2.7 Volt
 - **Sensor** : BMP180 (pressure and temperature)
 - **VHF Radio Module** : [Dorji DRA818V](http://www.dorji.com/products-detail.php?ProId=55) (included)
