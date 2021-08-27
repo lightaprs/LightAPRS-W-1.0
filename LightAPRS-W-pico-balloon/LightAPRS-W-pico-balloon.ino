@@ -237,6 +237,7 @@ void loop() {
         GpsOFF;
         ublox_high_alt_mode_enabled = false; //gps sleep mode resets high altitude mode.
         wdt_reset();
+        gps = TinyGPSPlus();    // reset gps parser
         delay(1000);
         GpsON;
         GpsInvalidTime=0;     
