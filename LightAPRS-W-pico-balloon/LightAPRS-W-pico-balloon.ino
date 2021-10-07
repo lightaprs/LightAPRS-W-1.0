@@ -102,6 +102,9 @@ boolean autoPathSizeHighAlt = true; //force path to WIDE2-N only for high altitu
 
 boolean beaconViaARISS = false; //there are no iGates in some regions (such as North Africa,  Oceans, etc) so try to beacon via ARISS (International Space Station) https://www.amsat.org/amateur-radio-on-the-iss/
 
+// Send aprs high precision position extension (adds 5 bytes to beacon messaage)
+boolean send_aprs_enhanced_precision = true;
+
 boolean radioSetup = false;
 boolean  aliveStatus = true; //for tx status message on first wake-up just once.
 
@@ -278,7 +281,6 @@ void loop() {
  
         } else {
           
-          updatePosition();
           updateTelemetry();
           //APRS frequency isn't the same for the whole world. (for pico balloon only)
           if (!radioSetup || TxCount == 200) {
@@ -435,62 +437,35 @@ byte configDra818(char *freq)
   return (ack[0] == 0x30) ? 1 : 0;
 }
 
-void updatePosition() {
+void updatePosition(int high_precision, char *dao) {
+
   // Convert and set latitude NMEA string Degree Minute Hundreths of minutes ddmm.hh[S,N].
   char latStr[10];
-  int temp = 0;
-
-  double d_lat = gps.location.lat();
-  double dm_lat = 0.0;
-
-  if (d_lat < 0.0) {
-    temp = -(int)d_lat;
-    dm_lat = temp * 100.0 - (d_lat + temp) * 60.0;
-  } else {
-    temp = (int)d_lat;
-    dm_lat = temp * 100 + (d_lat - temp) * 60.0;
+  RawDegrees rawDeg = gps.location.rawLat();
+  uint32_t min_nnnnn;
+  char lat_dao = 0;
+  min_nnnnn = rawDeg.billionths * 0.006;
+  if ( ((min_nnnnn / (high_precision ? 1 : 100)) % 10) >= 5 && min_nnnnn < (6000000 - ((high_precision ? 1 : 100)*5)) ) {
+    // round up. Avoid overflow (59.999999 should never become 60.0 or more)
+    min_nnnnn = min_nnnnn + (high_precision ? 1 : 100)*5;
   }
-
-  dtostrf(dm_lat, 7, 2, latStr);
-
-  if (dm_lat < 1000) {
-    latStr[0] = '0';
-  }
-
-  if (d_lat >= 0.0) {
-    latStr[7] = 'N';
-  } else {
-    latStr[7] = 'S';
-  }
-
+  sprintf(latStr, "%02u%02u.%02u%c", (unsigned int ) (rawDeg.deg % 100), (unsigned int ) ((min_nnnnn / 100000) % 100), (unsigned int ) ((min_nnnnn / 1000) % 100), rawDeg.negative ? 'S' : 'N');
+  if (dao)
+    dao[0] = (char) ((min_nnnnn % 1000) / 11) + 33;
   APRS_setLat(latStr);
+
 
   // Convert and set longitude NMEA string Degree Minute Hundreths of minutes ddmm.hh[E,W].
   char lonStr[10];
-  double d_lon = gps.location.lng();
-  double dm_lon = 0.0;
-
-  if (d_lon < 0.0) {
-    temp = -(int)d_lon;
-    dm_lon = temp * 100.0 - (d_lon + temp) * 60.0;
-  } else {
-    temp = (int)d_lon;
-    dm_lon = temp * 100 + (d_lon - temp) * 60.0;
+  rawDeg = gps.location.rawLng();
+  min_nnnnn = rawDeg.billionths * 0.006;
+  if ( ((min_nnnnn / (high_precision ? 1 : 100)) % 10) >= 5 && min_nnnnn < (6000000 - ((high_precision ? 1 : 100)*5)) ) {
+    min_nnnnn = min_nnnnn + (high_precision ? 1 : 100)*5;
   }
-
-  dtostrf(dm_lon, 8, 2, lonStr);
-
-  if (dm_lon < 10000) {
-    lonStr[0] = '0';
-  }
-  if (dm_lon < 1000) {
-    lonStr[1] = '0';
-  }
-
-  if (d_lon >= 0.0) {
-    lonStr[8] = 'E';
-  } else {
-    lonStr[8] = 'W';
+  sprintf(lonStr, "%03u%02u.%02u%c", (unsigned int ) (rawDeg.deg % 1000), (unsigned int ) ((min_nnnnn / 100000) % 100), (unsigned int ) ((min_nnnnn / 1000) % 100), rawDeg.negative ? 'W' : 'E');
+  if (dao) {
+    dao[1] = (char) ((min_nnnnn % 1000) / 11) + 33;
+    dao[2] = 0;
   }
 
   APRS_setLon(lonStr);
@@ -539,6 +514,16 @@ void updateTelemetry() {
   telemetry_buff[53] = ' ';
 
   sprintf(telemetry_buff + 54, "%s", comment);   
+
+  // APRS PRECISION AND DATUM OPTION http://www.aprs.org/aprs12/datum.txt ; this extension should be added at end of beacon message.
+  // We only send this detailed info if it's likely we're interested in, i.e. searching for landing position
+  if (send_aprs_enhanced_precision && gps.altitude.feet() < 10000L && strlen(telemetry_buff) < sizeof(telemetry_buff) - 1 - 5 - 1) /* room for " !wAB!\0" */ {
+    char dao[3];
+    updatePosition(1, dao);
+    sprintf(telemetry_buff + strlen(telemetry_buff), " !w%s!", dao);
+  } else {
+    updatePosition(0, NULL);
+  }
 
 #if defined(DEVMODE)
   Serial.println(telemetry_buff);
