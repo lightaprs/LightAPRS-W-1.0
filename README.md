@@ -1,14 +1,16 @@
 # LightAPRS WSPR Tracker
 
-LightAPRS-W is an affordable, smallest, lightest, powerful and open source APRS tracker with WSPR. It makes tracking pico balloons simple and easy. 
+LightAPRS-W 1.0 is an affordable, smallest, lightest, powerful and open source APRS tracker with WSPR. It makes tracking pico balloons simple and easy. 
 It is able to report location, altitude, temperature and pressure to the internet ([APRS-IS](http://status.aprs2.net)) or direct to an amateur radio once a minute with a solar panel/supercapacitors or just 4xAAA batteries. 
 Because LightAPRS-W is open source you can add your own custom sensors via I2C/SPI pins.
 
-LightAPRS-W is available on http://shop.qrp-labs.com/aprs/lightaprs-w for order. If you don't need WSPR, than check out APRS only tracker [LightAPRS](https://github.com/lightaprs/LightAPRS-1.0) or LoRa/LoRaWAN only tracker [LightTracker](https://github.com/lightaprs/LightTracker-1.0).
+LightAPRS-W 1.0 is available on http://shop.qrp-labs.com/aprs/lightaprs-w for order. If you don't need WSPR, than check out APRS only tracker [LightAPRS](https://github.com/lightaprs/LightAPRS-1.0) or LoRa/LoRaWAN only tracker [LightTracker](https://github.com/lightaprs/LightTracker-1.0).
+
+**IMPORTANT:** Do not forget to check out new LightAPRS-W 2.0 Tracker: https://github.com/lightaprs/LightAPRS-W-2.0
 
 <img src="images/lightaprs-w-pinout.jpeg" width="600">
 
-**Important :** LightAPRS-W uses the amateur 2 meter (VHF) and 10m+ (HF) radio band which requires an amateur radio license to operate.
+**Important :** LightAPRS-W 1.0 uses the amateur 2 meter (VHF) and 10m+ (HF) radio band which requires an amateur radio license to operate.
  
 ## Basic Features
  
@@ -48,7 +50,7 @@ LightAPRS-W is available on http://shop.qrp-labs.com/aprs/lightaprs-w for order.
 
 ## Configuration
 
-To programme LightAPRS-W Tracker, all you need is a micro usb (B type) cable, a few installations and configurations.
+To programme LightAPRS-W 1.0 Tracker, all you need is a micro usb (B type) cable, a few installations and configurations.
 
 ### 1.Install CH340G Driver
 
@@ -92,7 +94,7 @@ Download and install [Arduino IDE](https://www.arduino.cc/en/Main/Software). If 
 
 ### 5.Copy Libraries & Compile Source Code 
 
-You are almost ready to programme LightAPRS-W Tracker :)
+You are almost ready to programme LightAPRS-W 1.0 Tracker :)
 
 - First download the repository to your computer using the green "[clone or download](https://github.com/lightaprs/LightAPRS-W-1.0/archive/master.zip)" button.
 - There are more than one Arduino projects optimized for different use cases. For example if you are planning to use the LightAPRS-W tracker for a pico balloon project, then use the "[LightAPRS-W-pico-balloon](LightAPRS-W-pico-balloon)" folder.
@@ -100,7 +102,7 @@ You are almost ready to programme LightAPRS-W Tracker :)
 - **Windows** : This PC\Documents\Arduino\libraries\
 - **Mac** : /Users/\<username\>/Documents/Arduino/libraries/ <img src="images/lightaprs-library-copy.png" width="600">
 
-**IMPORTANT :** LightAPRS-W uses more libraries than LightAPRS. So if you purchased LightAPRS and copied libraries before, do it again for LightAPRS-W. Otherwise you get a compile error.
+**IMPORTANT :** LightAPRS-W 1.0 uses more libraries than LightAPRS. So if you purchased LightAPRS and copied libraries before, do it again for LightAPRS-W. Otherwise you get a compile error.
 
 - Then open the *.ino file with Arduino IDE and change your settings (Callsign, SSID, comment, etc.)
 - Click **Verify** 
@@ -108,7 +110,7 @@ You are almost ready to programme LightAPRS-W Tracker :)
 ### 6.Upload
 
 - First attach an VHF antenna (at least 50cm monopole wire) to your tracker. Radio module may be damaged when not attaching an antenna, since power has nowhere to go. 
-- Connect LightAPRS-W Tracker to your computer with a micro USB cable. 
+- Connect LightAPRS-W 1.0 Tracker to your computer with a micro USB cable. 
 - If you have successfully installed the CH340G driver explained in the first step, you should see a COM port under **Tools->Port** menu item. Select that port. 
 
 <img src="images/lightaprs-arduino-port-select.png" width="600">  
